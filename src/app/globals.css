@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0e110f;
+  --fg: #f3ebe0;
+  --muted: #8f877a;
+  --muted-strong: #c9c0b2;
+  --surface: #171b18;
+  --line: #2a302b;
+  --accent: #e8a838;
+  --accent-2: #6db3a0;
+  --wood: #1a1612;
+  --background: var(--bg);
+  --foreground: var(--fg);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(232, 168, 56, 0.12), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(109, 179, 160, 0.08), transparent 50%),
+    linear-gradient(180deg, #121612 0%, var(--bg) 40%, #0c0f0d 100%);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 45%, transparent);
+  color: var(--fg);
+}
+
+.select {
+  appearance: none;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  color: var(--fg);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  min-width: 9rem;
+}
+
+.select:focus {
+  outline: 2px solid color-mix(in oklab, var(--accent) 50%, transparent);
+  outline-offset: 1px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  transition: filter 120ms ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg);
+  font-size: 0.875rem;
+  padding: 0.5rem 0.9rem;
+  transition: background 120ms ease;
+}
+
+.btn-secondary:hover {
+  background: var(--surface);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--line) 55%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
